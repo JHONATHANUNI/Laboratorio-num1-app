@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,39 +9,26 @@
 </head>
 <body>
     <h1>Consultar Facturas</h1>
-    <?php
-        session_start();
-        if(!isset($_SESSION['usuario'])) {
-            header('Location: login.php');
-            exit();
-        }
-        require_once 'app/controllers/ConexionDBController.php';
-        require_once 'app/models/Contacto.php';
-
-        $contacto = new Contacto();
-        $facturas = $contacto->consultarFacturas();
-
-        if ($facturas) {
-            echo "<table>";
-            echo "<tr><th>Referencia</th><th>Fecha</th><th>Estado</th><th>Nombre</th><th>Documento</th><th>Teléfono</th><th>Email</th><th>Total</th></tr>";
-            foreach ($facturas as $factura) {
-                echo "<tr>";
-                echo "<td>" . $factura['referencia'] . "</td>";
-                echo "<td>" . $factura['fecha'] . "</td>";
-                echo "<td>" . $factura['estado'] . "</td>";
-                echo "<td>" . $factura['nombre'] . "</td>";
-                echo "<td>" . $factura['numero_documento'] . "</td>";
-                echo "<td>" . $factura['telefono'] . "</td>";
-                echo "<td>" . $factura['email'] . "</td>";
-                echo "<td>" . $factura['total'] . "</td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "<p>No hay facturas registradas.</p>";
-        }
-    ?>
-    <br>
-    <a href="index.php">Volver</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Número de Referencia</th>
+                <th>Fecha de Compra</th>
+                <th>Estado</th>
+                <th>Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($facturas as $factura): ?>
+                <tr>
+                    <td><?php echo $factura['refencia']; ?></td>
+                    <td><?php echo $factura['fecha']; ?></td>
+                    <td><?php echo $factura['estado']; ?></td>
+                    <td><a href="detalleFacturaController.php?refencia=<?php echo $factura['refencia']; ?>">Ver Detalle</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <a href="cerrar_sesion.php">Cerrar Sesión</a>
 </body>
 </html>

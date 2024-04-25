@@ -8,13 +8,17 @@
 </head>
 <body>
     <h1>Iniciar Sesión</h1>
-    <form action="login.php" method="post">
+    <form action="../controllers/indexController.php" method="post">
         <label for="usuario">Usuario:</label>
         <input type="text" id="usuario" name="usuario" required><br><br>
         <label for="contraseña">Contraseña:</label>
         <input type="password" id="contraseña" name="contraseña" required><br><br>
         <button type="submit">Iniciar Sesión</button>
     </form>
+    <?php
+        if(isset($error)) {
+            echo "<p>$error</p>";
+        }
+    ?>
 </body>
 </html>
-
