@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
 </head>
 <body>
-    <h1>Iniciar Sesión</h1>
-    <form action="login.php" method="post">
-        <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usuario" required><br><br>
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña" required><br><br>
+    <h2>Iniciar Sesión</h2>
+    <?php if (isset($error)): ?>
+        <p style="color: red;"><?= $error ?></p>
+    <?php endif; ?>
+    <form action="index.php?controller=auth&action=login" method="POST">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
         <button type="submit">Iniciar Sesión</button>
     </form>
 </body>
 </html>
-
