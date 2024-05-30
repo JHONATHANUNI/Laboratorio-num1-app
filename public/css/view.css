@@ -1,0 +1,165 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('login2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #26aecf;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la tabla de productos */
+.invoice-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.invoice-items th, .invoice-items td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.invoice-items th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.invoice-items tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.invoice-items tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilos para el botón "Volver al listado" */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para la sección de información del cliente */
+.client-details {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.client-details h2 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.client-details p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la sección de productos */
+.products {
+    margin-top: 20px;
+}
+
+.product-item {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.product-item label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.product-item input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 16px;
+    width: 60px;
+    margin: 0 10px;
+}
+
+.product-item .price {
+    font-weight: bold;
+    color: #2980b9;
+    display: inline-block;
+    min-width: 80px;
+    text-align: right;
+}
+
+.product-item:hover {
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la sección de total */
+.invoice-total {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-total p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.invoice-total span {
+    font-weight: bold;
+    color: #2980b9;
+    display: inline-block;
+    min-width: 80px;
+    text-align: right;
+}
+
+.invoice-total span:hover {
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

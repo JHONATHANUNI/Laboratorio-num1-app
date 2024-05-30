@@ -23,6 +23,18 @@ class InvoiceItem {
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+
+    // --------------------------------------------------------
+    // Acciones lista factura 
+    public function findInvoiceItemsByReferences($reference) {
+        // Aquí asumimos que tienes una base de datos o algún mecanismo de almacenamiento
+        // Debes reemplazar esta lógica con la que se adapte a tu sistema de almacenamiento
+        $query = "SELECT * FROM invoice_items WHERE referenciaFactura = :reference";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':reference', $reference);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }
 ?>
