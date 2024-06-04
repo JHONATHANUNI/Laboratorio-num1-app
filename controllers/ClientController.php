@@ -2,6 +2,17 @@
 require_once __DIR__ . '/../models/Client.php';
 
 class ClientController {
+    public function index() {
+        // Crear una instancia del modelo de cliente
+        $clientModel = new Client();
+
+        // Obtener todos los clientes
+        $clients = $clientModel->getAllClients();
+
+        // Mostrar la vista de lista de clientes
+        require __DIR__ . '/../views/client_list.php';
+    }
+    
     public function create() {
         // Verificar si se reciben datos POST
         if ($_SERVER["REQUEST_METHOD"] == "POST") {

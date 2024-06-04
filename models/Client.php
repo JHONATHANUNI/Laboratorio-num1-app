@@ -9,6 +9,25 @@ class Client {
         $this->db = Database::connect();
     }
     
+    public function getAllClients() {
+        // Query para seleccionar todos los clientes
+        $sql = "SELECT * FROM clientes";
+        $result = $this->db->query($sql);
+    
+        // Verificar si se obtuvieron resultados
+        if ($result->num_rows > 0) {
+            // Convertir los resultados en un array asociativo
+            $clients = array();
+            while ($row = $result->fetch_assoc()) {
+                $clients[] = $row;
+            }
+            return $clients;
+        } else {
+            // Si no se encontraron clientes, retornar un array vacío
+            return array();
+        }
+    }
+    
 
     public function findClientByDocument($tipoDocumento, $numeroDocumento) {
         $sql = "SELECT * FROM clientes WHERE tipoDocumento = ? AND numeroDocumento = ?";

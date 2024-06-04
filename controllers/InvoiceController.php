@@ -18,7 +18,7 @@ class InvoiceController
     public function create()
     {
         $productModel = new Product();
-        $products = $productModel->getAll();
+        $products = $productModel->getAllProducts();
         require __DIR__ . '/../views/invoice_form.php';
     }
 
@@ -26,6 +26,12 @@ class InvoiceController
     public function store()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Verificar si se han seleccionado productos
+            if (!isset($_POST['productos']) || empty($_POST['productos'])) {
+                echo "No se han seleccionado productos.";
+                exit;
+            }
+
             // Recolectar datos del formulario del cliente
             $clientData = [
                 'nombreCompleto' => $_POST['nombreCompleto'] ?? '',
@@ -46,7 +52,7 @@ class InvoiceController
             $productModel = new Product();
             $total = 0;
             foreach ($_POST['productos'] as $productId) {
-                $product = $productModel->getById($productId);
+                $product = $productModel->getProductById($productId);
                 $total += $product['precio'] ?? 0;
             }
             $descuento = ($total > 200000) ? 10 : (($total > 100000) ? 5 : 0);
@@ -71,7 +77,7 @@ class InvoiceController
             // Crear detalles de la factura (ítems)
             $invoiceItem = new InvoiceItem();
             foreach ($_POST['productos'] as $productId) {
-                $product = $productModel->getById($productId);
+                $product = $productModel->getProductById($productId);
                 $itemData = [
                     'referenciaFactura' => $reference,
                     'idArticulo' => $productId,
@@ -89,7 +95,6 @@ class InvoiceController
             // Manejar el caso en el que no se reciben datos POST
         }
     }
-
 
     // Función para marcar una factura como 'Error', 'Cambio' o 'Devolucion'
     public function updateState() {
@@ -124,8 +129,8 @@ class InvoiceController
     }
     
 
-    // Función para mostrar los detalles de una factura
-    public function show() {
+       // Función para mostrar los detalles de una factura
+       public function show() {
         if (isset($_GET['reference'])) {
             $reference = $_GET['reference'];
             $invoiceModel = new Invoice();
@@ -150,5 +155,4 @@ class InvoiceController
             exit;
         }
     }
-    
 }

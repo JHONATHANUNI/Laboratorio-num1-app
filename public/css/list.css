@@ -1,6 +1,5 @@
-/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f2f2f2;
     margin: 0;
     padding: 0;
@@ -18,13 +17,12 @@ body {
 h1 {
     text-align: center;
     color: #333;
+    margin-bottom: 30px;
 }
 
-/* Estilos para la tabla */
 table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
     margin-top: 20px;
@@ -47,43 +45,6 @@ tr:hover {
     background-color: #f9f9f9;
 }
 
-/* Estilos para los enlaces */
-a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-a:hover {
-    color: #0056b3;
-}
-
-/* Estilos para los botones */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-/* Estilos para el botón "Crear Factura" */
-.create-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #28a745; /* Color verde */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-/* Estilos para los botones en la lista de facturas */
 .invoice-actions a {
     display: inline-block;
     padding: 6px 12px;
@@ -95,28 +56,57 @@ a:hover {
     margin-right: 5px; /* Espaciado entre los botones */
 }
 
-/* Estilos de hover para los botones */
 .invoice-actions a:hover {
     background-color: #2980b9;
 }
 
-/* Estilos para el mensaje de estado "No disponible" */
 .invoice-actions span {
     color: #999;
-    
-}
-/* Estilos para el botón "Crear Factura" */
-.create-invoice-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #27ae60;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
 }
 
-/* Estilos de hover para el botón */
-.create-invoice-btn:hover {
-    background-color: #2ecc71;
+.navigation-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Espaciado entre los botones y la tabla */
 }
+
+.navigation-btn:hover {
+    background-color: #0056b3;
+}
+/* Estilos para los botones */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0deb4f;
+    color: #b91c1c;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Estilos para el botón "Crear Factura" */
+.create-btn {
+    background-color: #08f32f;
+}
+
+/* Estilos para los botones de navegación */
+.navigation-btn {
+    background-color: #007bff;
+}
+
+.navigation-btn:hover {
+    background-color: #0056b3;
+}
+

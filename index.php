@@ -1,8 +1,14 @@
 <?php
 session_start();
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : 'auth';
-$action = isset($_GET['action']) ? $_GET['action'] : 'login';
+// Verificar si el usuario no está autenticado y redirigir al login si es necesario
+if (!isset($_SESSION['user']) && (!isset($_GET['controller']) || $_GET['controller'] !== 'auth' || $_GET['action'] !== 'login')) {
+    header('Location: index.php?controller=auth&action=login');
+    exit();
+}
+
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
+$action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
 $controllerFile = 'controllers/' . ucfirst($controller) . 'Controller.php';
 
@@ -25,4 +31,3 @@ if (file_exists($controllerFile)) {
     echo "Archivo de controlador no encontrado.";
 }
 ?>
-
